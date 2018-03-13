@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface StudentService {
 
-	List<Student> list();
+	//List<Student> list();
 	int count(int state);
 
+    List<Student> list1();
 }
