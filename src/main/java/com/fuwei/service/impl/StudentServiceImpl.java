@@ -4,6 +4,7 @@ import com.fuwei.mapper.StudentMapper;
 import com.fuwei.pojo.Student;
 import com.fuwei.service.StudentService;
 import com.fuwei.util.MemcachedUtil;
+import com.fuwei.util.RedisUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,11 +13,13 @@ import java.util.List;
 
 @Service
 /*@ContextConfiguration("classpath:memcachedContext.xml")*/ //memcached的缓存
-@ContextConfiguration("classpath:memcachedContext.xml")        //redis的缓存
+@ContextConfiguration("classpath:spring-redis.xml")        //redis的缓存
 public class StudentServiceImpl implements StudentService {
 	private Logger logger=Logger.getLogger(StudentServiceImpl.class);
 	@Autowired
 	StudentMapper studentMapper;
+	@Autowired
+	RedisUtil redisUtil;
 	
 	
 	/*public List<Student> list(){
@@ -29,14 +32,14 @@ public class StudentServiceImpl implements StudentService {
 
 	public List<Student> list1() {
 		List<Student> students;
-	if(MemcachedUtil.get("Student") !=null){
-			students= (List<Student>) MemcachedUtil.get("Student");
+	if(redisUtil.get("Student") !=null){
+			students= (List<Student>) redisUtil.get("Student");
 			logger.info("从缓存里面取移动端"+students+"-----+----");
 			System.out.println("从缓存里面取移动端"+students+"-----+----");
 			return students;
 		}else {
 			students=studentMapper.list();
-		MemcachedUtil.put("Student",students,60);
+		redisUtil.set("Student",students);
 			System.out.println("存储在缓存"+students+"123-----+----");
 			return students;
 		}
