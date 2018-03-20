@@ -17,8 +17,6 @@
 
 
     <context:annotation-config />
-    <!-- 引入同文件夹下的redis属性配置文件 -->
-    <import resource="spring-redis.xml"/>
     <context:component-scan base-package="com.fuwei.service" />
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
@@ -52,6 +50,36 @@
         <property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
     </bean>
 
+  <!-- jedis 配置 -->
+    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig" >
+        <property name="maxIdle" value="${redis.maxIdle}" />
+        <property name="maxWaitMillis" value="${redis.maxWait}" />
+        <property name="testOnBorrow" value="${redis.testOnBorrow}" />
+    </bean >
+    <context:property-placeholder location="classpath:redis.properties" />
+    <!-- redis服务器中心 -->
+    <bean id="connectionFactory"  class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" >
+        <property name="poolConfig" ref="poolConfig" />
+        <property name="port" value="${redis.port}" />
+        <property name="hostName" value="${redis.host}" />
+        <property name="password" value="${redis.password}" />
+        <property name="timeout" value="${redis.timeout}" ></property>
+    </bean >
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate" >
+        <property name="connectionFactory" ref="connectionFactory" />
+        <property name="keySerializer" >
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+        </property>
+        <property name="valueSerializer" >
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
+        </property>
+    </bean >
+
+    <!-- cache配置 -->
+    <bean id="redisUtil" class="com.fuwei.util.RedisUtil" >
+        <property name="redisTemplate" ref="redisTemplate" />
+    </bean >
+    <!-- spring自己的缓存管理器，这里定义了缓存位置名称 ，即注解中的value -->
     <!--     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">   -->
     <!--       <property name="driverClassName">   -->
     <!--           <value>com.mysql.jdbc.Driver</value>   -->

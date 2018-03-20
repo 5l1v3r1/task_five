@@ -1,6 +1,8 @@
 package com.fuwei.pojo;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
 	private int id;
 	private String name;
 	private String picture;
