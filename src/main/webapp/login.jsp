@@ -16,7 +16,7 @@
 <h1>用户登录</h1>
     <p style="color:red">${error}</p>
 <hr>
-<form name="" action="/u/index" method="post">
+<form name="" action="/task_five/u/Login" method="post">
     <table>
         <tr>
             <td>用户名：</td>
@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <td colspan="2" align="center"><input type="submit" value="登录"/>&nbsp;&nbsp;<button><a
-                    href="/register">注册</a></button></td>
+                    href="/task_five/register">注册</a></button></td>
         </tr>
     </table>
 </form>

@@ -16,7 +16,7 @@
 <h1>用户注册</h1>
     <p style="color:red">${exist}</p>
 <hr>
-<form action="/Register" method="post"> <%--action="/Register" method="post"--%>
+<form action="/task_five/Register" method="post"> <%--action="/Register" method="post"--%>
     <table>
         <tr>
             <td>用户名：</td>
@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <td colspan="2" align="center"><input type="submit" value="注册"/>&nbsp;&nbsp;<button><a
-                    href="/login">登录</a></button></td>
+                    href="/task_five/login">登录</a></button></td>
         </tr>
     </table>
 </form>

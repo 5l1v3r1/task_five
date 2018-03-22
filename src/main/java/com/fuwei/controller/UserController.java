@@ -43,7 +43,7 @@ public class UserController {
 
 
    // @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
-    @RequestMapping(value = "/u/index", method = RequestMethod.POST)
+    @RequestMapping(value = "/u/Login", method = RequestMethod.POST)
     public ModelAndView Login(HttpServletRequest request, HttpServletResponse response, @Param("name") String name, @Param("pwd") String pwd, User user, String Pwd1, String salt, Model model) throws Exception {
         System.out.println("----------------------------");
         ModelAndView mav = new ModelAndView();

@@ -28,8 +28,8 @@ import java.util.List;
 public class StudentController {
 	@Autowired
 	StudentService studentService;
-	@Autowired
-	RedisUtil redisUtil;
+	/*@Autowired
+	RedisUtil redisUtil;*/
 
 	@RequestMapping(value="/index",method= RequestMethod.GET)
 	public ModelAndView listCategory(){

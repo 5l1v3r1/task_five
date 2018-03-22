@@ -1,145 +1,113 @@
 package com.fuwei.util;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.List;
 
-import org.springframework.cache.Cache;
-import org.springframework.cache.support.SimpleValueWrapper;
-import org.springframework.dao.DataAccessException;
-import org.springframework.data.redis.connection.RedisConnection;
-import org.springframework.data.redis.core.RedisCallback;
+import org.apache.log4j.Logger;
 import org.springframework.data.redis.core.RedisTemplate;
-public class RedisUtil implements Cache{
-    private RedisTemplate<String, Object> redisTemplate;
-    private String name;
-    public RedisTemplate<String, Object> getRedisTemplate() {
-        return redisTemplate;
-    }
-    public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    @Override
-    public String getName() {
-        return this.name;
-    }
-    @Override
-    public Object getNativeCache() {
-        return this.redisTemplate;
-    }
-    /**
-     * 从缓存中获取key
-     */
+import org.springframework.data.redis.core.ValueOperations;
 
-    public ValueWrapper get(Object key) {
-        System.out.println("get key");
-        final String keyf = key.toString();
-        Object object = null;
-        object = redisTemplate.execute(new RedisCallback<Object>() {
-            public Object doInRedis(RedisConnection connection)
-                    throws DataAccessException {
-                byte[] key = keyf.getBytes();
-                byte[] value = connection.get(key);
-                if (value == null) {
-                    return null;
-                }
-                return toObject(value);
-            }
-        });
-        return (object != null ? new SimpleValueWrapper(object) : null);
-    }
+import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * Redis工具类
+ */
+public class RedisUtil {
+    private RedisTemplate<Serializable, List> redisTemplate;
+
     /**
-     * 将一个新的key保存到缓存中
-     * 先拿到需要缓存key名称和对象，然后将其转成ByteArray
+     * 批量删除对应的value
+     *  @param keys
      */
-    @Override
-    public void put(Object key, Object value) {
-        System.out.println("put key");
-        final String keyf = key.toString();
-        final Object valuef = value;
-        final long liveTime = 86400;
-        redisTemplate.execute(new RedisCallback<Long>() {
-            public Long doInRedis(RedisConnection connection)
-                    throws DataAccessException {
-                byte[] keyb = keyf.getBytes();
-                byte[] valueb = toByteArray(valuef);
-                connection.set(keyb, valueb);
-                if (liveTime > 0) {
-                    connection.expire(keyb, liveTime);
-                }
-                return 1L;
-            }
-        });
-    }
-    private byte[] toByteArray(Object obj) {
-        byte[] bytes = null;
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        try {
-            ObjectOutputStream oos = new ObjectOutputStream(bos);
-            oos.writeObject(obj);
-            oos.flush();
-            bytes = bos.toByteArray();
-            oos.close();
-            bos.close();
-        }catch (IOException ex) {
-            ex.printStackTrace();
+    public void remove(final String... keys) {
+        for (String key : keys) {
+            remove(key);
         }
-        return bytes;
     }
-    private Object toObject(byte[] bytes) {
-        Object obj = null;
-        try {
-            ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
-            ObjectInputStream ois = new ObjectInputStream(bis);
-            obj = ois.readObject();
-            ois.close();
-            bis.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
+
+    /**
+     * 批量删除key
+     * @param pattern
+     */
+    public void removePattern(final String pattern) {
+        Set<Serializable> keys = redisTemplate.keys(pattern);
+        if (keys.size() > 0)
+            redisTemplate.delete(keys);
+    }
+
+    /**
+     * 删除对应的value
+     * @param key
+     */
+    public void remove(final String key) {
+        if (exists(key)) {
+            redisTemplate.delete(key);
         }
-        return obj;
     }
+
     /**
-     * 删除key
+     * 判断缓存中是否有对应的value
+     * @param key
+     * @return
      */
-    @Override
-    public void evict(Object key) {
-        System.out.println("del key");
-        final String keyf = key.toString();
-        redisTemplate.execute(new RedisCallback<Long>() {
-            public Long doInRedis(RedisConnection connection)
-                    throws DataAccessException {
-                return connection.del(keyf.getBytes());
-            }
-        });
+    public boolean exists(final String key) {
+        return redisTemplate.hasKey(key);
     }
+
     /**
-     * 清空key
+     * 读取缓存
+     * @param key
+     * @return
      */
-    @Override
-    public void clear() {
-        System.out.println("clear key");
-        redisTemplate.execute(new RedisCallback<String>() {
-            public String doInRedis(RedisConnection connection)
-                    throws DataAccessException {
-                connection.flushDb();
-                return "ok";
-            }
-        });
+    public Object get(final String key) {
+        Object result = null;
+        ValueOperations<Serializable, List> operations = redisTemplate
+                .opsForValue();
+        result = operations.get(key);
+        return result;
     }
-    @Override
-    public <T> T get(Object key, Class<T> type) {
-        return null;
+
+    /**
+     * 写入缓存
+     * @param key
+     * @param value
+     * @return
+     */
+    public boolean set(final String key, List value) {
+        boolean result = false;
+        try {
+            ValueOperations<Serializable, List> operations = redisTemplate
+                    .opsForValue();
+            operations.set(key, value);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
-    @Override
-    public ValueWrapper putIfAbsent(Object key, Object value) {
-        return null;
+
+    /**
+     * 写入缓存
+     * @param key
+     * @param value
+     * @return
+     */
+    public boolean set(final String key, List value, Long expireTime) {
+        boolean result = false;
+        try {
+            ValueOperations<Serializable, List> operations = redisTemplate
+                    .opsForValue();
+            operations.set(key, value);
+            redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public void setRedisTemplate(
+            RedisTemplate<Serializable, List> redisTemplate) {
+        this.redisTemplate = redisTemplate;
     }
 }

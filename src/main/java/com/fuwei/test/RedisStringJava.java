@@ -10,9 +10,10 @@ public class RedisStringJava {
        jedis.auth("666666");
         System.out.println("连接成功");
         //设置 redis 字符串数据
-        jedis.set("runoobkey", "www.runoob.com");
+        jedis.set("A", "好的");
+
         // 获取存储的数据并输出
-        System.out.println("redis 存储的字符串为: "+ jedis.get("runoobkey"));
+        System.out.println("redis 存储的字符串为: "+ jedis.getrange("student2",27,1000));
         System.out.println("redis 存储的字符串为: "+ jedis.ping());
     }
 }
