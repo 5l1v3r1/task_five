@@ -26,6 +26,7 @@
             <td>密码：</td>
             <td><input type="pwd" name="pwd" /></td>
         </tr>
+
         <tr>
             <td colspan="2" align="center"><input type="submit" value="登录"/>&nbsp;&nbsp;<button><a
                     href="/task_five/register">注册</a></button></td>

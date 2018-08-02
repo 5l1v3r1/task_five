@@ -6,4 +6,5 @@ public interface UserService {
 
     User login(String name);
     void register(User user);
+   User getVerify(int verify, String phone);
 }

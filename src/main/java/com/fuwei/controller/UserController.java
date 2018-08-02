@@ -1,6 +1,7 @@
 package com.fuwei.controller;
 
 
+import com.fuwei.api.ChackSMS;
 import com.fuwei.des.CharacterUtils;
 import com.fuwei.des.DesUtil;
 import com.fuwei.pojo.User;
@@ -17,9 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.MediaType;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.nio.charset.Charset;
 
 
@@ -46,6 +46,7 @@ public class UserController {
     @RequestMapping(value = "/u/Login", method = RequestMethod.POST)
     public ModelAndView Login(HttpServletRequest request, HttpServletResponse response, @Param("name") String name, @Param("pwd") String pwd, User user, String Pwd1, String salt, Model model) throws Exception {
         System.out.println("----------------------------");
+
         ModelAndView mav = new ModelAndView();
         User loginResult = userService.login(name);
         System.out.println(name);
@@ -56,8 +57,8 @@ public class UserController {
         }
         if (loginResult != null && Pwd1.equals(pwd) && loginResult.getName().equals(name)) {
             //保存到cookies
-            Cookie cookie=new Cookie("pwd",Pwd1);
-            Cookie cookie1=new Cookie("name",name);
+            Cookie cookie=new Cookie("pwd", URLEncoder.encode(Pwd1, "UTF-8"));
+            Cookie cookie1=new Cookie("name",URLEncoder.encode(name, "UTF-8"));
             //对cookies进行设置
             cookie.setMaxAge(60);
             cookie1.setMaxAge(60);
@@ -87,12 +88,13 @@ public class UserController {
     @RequestMapping(value = "/Register", method = RequestMethod.POST)
     //ModelAndView可以换成String 但是没有传值功能
     public ModelAndView Register(@Param("name") String name, @Param("pwd") String pwd, User user, Model model) throws Exception {
-        User loginResult = userService.login(name);
-
+        String Name= URLDecoder.decode(name,"utf-8");
+        User loginResult = userService.login(Name);
+        System.out.println(this.getClass().getName()+"   =======================");
         if (!name.equals("") && !pwd.equals("")) {
 
 
-                    if (loginResult != null && loginResult.getName().equals(name)) {
+                    if (loginResult != null && loginResult.getName().equals(Name)) {
                         ModelAndView mav = new ModelAndView();
                         mav.addObject("exist", "此用户已存在☹");
                         mav.setViewName("/register");
@@ -105,7 +107,7 @@ public class UserController {
                         System.out.println(pwd);
                         String Pwd = DesUtil.encrypt(pwd, CHARSET, salt);
                         System.out.println(Pwd);
-                        user.setName(name);
+                        user.setName(Name);
                         user.setPwd(pwd);
                         user.setSalt(salt);
                         user.setDespwd(Pwd);
@@ -122,4 +124,26 @@ public class UserController {
                 }
 
         }
+
+    @RequestMapping(value = "/send",method=RequestMethod.POST)
+    public String send(@Param("phone") String phone,HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse)throws Exception{
+        System.out.println(phone);
+        if(!"".equals(phone)&&phone.length()==11){
+            int verify= (int) (Math.random()*9000+1000);
+            System.out.println(verify);
+            ChackSMS.good(phone,verify);
+
+
+          /*  HttpSession session=httpServletRequest.getSession();
+            session.setAttribute("verify",verify);*/
+            System.out.println("good");
+            return "success2222"; //return 返回的是一个jsp页面
+        }else{
+            System.out.println("bad");
+            return "error1111";
+        }
+
+    }
+
+
 }

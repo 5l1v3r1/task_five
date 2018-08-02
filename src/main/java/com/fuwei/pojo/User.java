@@ -7,6 +7,9 @@ public class User {
     private String pwd;
     private String salt;
     private String despwd;
+    private String phone;
+    private String head_photo;
+    private String email;
 
     public Integer getId() {
         return id;
@@ -48,6 +51,30 @@ public class User {
         this.despwd = despwd;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getHead_photo() {
+        return head_photo;
+    }
+
+    public void setHead_photo(String head_photo) {
+        this.head_photo = head_photo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -56,6 +83,9 @@ public class User {
                 ", pwd='" + pwd + '\'' +
                 ", salt='" + salt + '\'' +
                 ", despwd='" + despwd + '\'' +
+                ", phone='" + phone + '\'' +
+                ", head_photo='" + head_photo + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

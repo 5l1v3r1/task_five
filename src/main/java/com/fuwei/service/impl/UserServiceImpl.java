@@ -23,4 +23,11 @@ public class UserServiceImpl implements UserService {
     public void register(User user) {
         userMapper.register(user);
     }
+
+    @Override
+    public User getVerify(int verify, String phone) {
+        return userMapper.getVerify(phone);
+    }
+
+
 }
