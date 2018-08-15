@@ -8,7 +8,15 @@
     <select id="login" resultType="User">
         select * from user where name=#{name}
     </select>
+    <select id="personal" resultType="User">
+        select * from user where id=#{id}
+    </select>
     <insert id="register" parameterType="User" >
-        insert into user (name,pwd,salt,despwd) values (#{name},#{pwd},#{salt},#{despwd})
+        insert into user (name,pwd,salt,despwd,phone,phone_code,email,email_code) values (#{name},#{pwd},#{salt},#{despwd},#{phone},#{phone_code},#{email},#{email_code})
     </insert>
+
+    <update id="upload" parameterType="com.fuwei.pojo.User" >
+        update user set head_photo=#{head_photo} where id=#{id}
+    </update>
+
 </mapper>

@@ -24,6 +24,13 @@ public class UserServiceImpl implements UserService {
         userMapper.register(user);
     }
 
+    //更新头像
+    @Override
+    public void upload(User user) {
+        userMapper.upload(user);
+    }
+
+
     @Override
     public User getVerify(int verify, String phone) {
         return userMapper.getVerify(phone);

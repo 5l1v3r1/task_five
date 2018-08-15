@@ -107,6 +107,11 @@
         <property name="basePackage" value="com.fuwei.mapper"/>
     </bean>
 
-
+    <!--&lt;!&ndash;七牛云对象存储配置&ndash;&gt;
+    <bean class="com.fuwei.api.QIniuUpload">
+        <property name="accessKeyId" value="sQjHpO-hHmg84KGNC72Xgumo0pKahWLih-FIgjm9"/>
+        <property name="accessKeySecret" value="hgTL4_1GpVqEHhrhTPkWdbbfQeJSTI90Qf2IHlI2"/>
+        <property name="bucketName" value="thelostworld"/>
+    </bean>-->
 
 </beans>

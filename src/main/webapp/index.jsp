@@ -7,11 +7,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>无标题文档</title>
-    <link href="js&css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <title>主页</title>
+    <link href="${pageContext.request.contextPath }/js&css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../bootstrap-3.3.5-dist/css/bootstrap.css">
-    <link href="js&css/Untitled-3.css" rel="stylesheet" type="text/css">
-    <link href="js&css/Untitled-1base.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath }/js&css/Untitled-3.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath }/js&css/Untitled-1base.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="container  hidden-xs">
@@ -19,9 +19,9 @@
         <p class="col-xs-12 col-sm-6 col-md-6 col-lg-6">客服电话:010-594-78634</p>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
             <div>
-                <a href="#" target="_blank"> <img alt=""  src="imges/54537.png"></a>
-                <a href="#" target="_blank"><img alt=""  src="imges/45678678.png"></a>
-                <a href="#" target="_blank"> <img alt=""  src="imges/54375483543.png"></a>
+                <a href="#" target="_blank"> <img alt=""  src="${pageContext.request.contextPath }/imges/54537.png"></a>
+                <a href="#" target="_blank"><img alt=""  src="${pageContext.request.contextPath }/imges/45678678.png"></a>
+                <a href="#" target="_blank"> <img alt=""  src="${pageContext.request.contextPath }/imges/54375483543.png"></a>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
     <div class="container">
         <div class="navbar-header">
             <a href="#" class="navbar-brand">
-                <img src="imges/logo.png" alt="Brand" class="img-responsive">
+                <img src="${pageContext.request.contextPath }/imges/logo.png" alt="Brand" class="img-responsive">
             </a>
             <button data-target="#open-nav" data-toggle="collapse" class="navbar-toggle btn-primary collapsed" aria-expanded="false">
                 <span class="icon-bar"></span>
@@ -41,10 +41,12 @@
         </div>
         <div id="open-nav" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
             <ul class="nav navbar-nav navbar-right text-center list-inline">
-                <li><a href="">首页</a></li>
-                <li><a href="../t11/index.html">职业</a></li>
+                <li style="border-bottom: 4px solid #ffffff;"><a href="${pageContext.request.contextPath}/index">首页</a></li>
+                <li><a href="${pageContext.request.contextPath}/detail">职业</a></li>
                 <li><a href="">推荐</a></li>
-                <li><a href="">关于</a></li>
+                <li><a href="${pageContext.request.contextPath}/upload">关于</a></li>
+                <li><a href="${pageContext.request.contextPath}/login">登陆</a></li>
+                <li><a href="${pageContext.request.contextPath}/register">注册</a></li>
                 <li ><a href="#" style="color: red;font-size: 30px;">${welcome}</a></li>
             </ul>
         </div>
@@ -61,22 +63,22 @@
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img alt="First slide" src="imges/547567.jpg">
+            <img alt="First slide" src="${pageContext.request.contextPath }/imges/547567.jpg">
         </div>
         <div class="item">
-            <img alt="Second slide" src="imges/547567.jpg">
+            <img alt="Second slide" src="${pageContext.request.contextPath }/imges/547567.jpg">
         </div>
         <div class="item">
-            <img alt="Third slide" src="imges/547567.jpg">
+            <img alt="Third slide" src="${pageContext.request.contextPath }/imges/547567.jpg">
         </div>
         <div class="item">
-            <img alt="Third slide" src="imges/547567.jpg">
+            <img alt="Third slide" src="${pageContext.request.contextPath }/imges/547567.jpg">
         </div>
         <a data-slide="prev" href="#myCarousel" class="carousel-control left">
-            <i class="icon-left"><img src="imges/54354.png"></i>
+            <i class="icon-left"><img src="${pageContext.request.contextPath }/imges/54354.png"></i>
         </a>
         <a data-slide="next" href="#myCarousel" class="carousel-control right">
-            <i class="icon-right"><img src="imges/4525424.png"></i>
+            <i class="icon-right"><img src="${pageContext.request.contextPath }/imges/4525424.png"></i>
         </a>
     </div>
 </div>
@@ -89,7 +91,7 @@
             <div class="row text-center">
                 <ul class="list-unstyled">
                     <li class="col-xs-12 up-1">
-                        <img alt="" src="imges/45354312.png">
+                        <img alt="" src="${pageContext.request.contextPath }/imges/45354312.png">
                     </li>
                     <li class="up-2 col-xs-12">高效</li>
                     <li class="up-3 col-xs-12">将三到七年的成长时间,缩短到一年到两年</li>
@@ -101,7 +103,7 @@
             <div class="row text-center">
                 <ul class="list-unstyled">
                     <li class="col-xs-12 up-1">
-                        <img alt="" src="imges/879789.png">
+                        <img alt="" src="${pageContext.request.contextPath }/imges/879789.png">
                     </li>
                     <li class="up-2 col-xs-12">规范</li>
                     <li class="up-3 col-xs-12">标准到实战教程,不会走弯路</li>
@@ -113,7 +115,7 @@
             <div class="row text-center">
                 <ul class="list-unstyled">
                     <li class="col-xs-12 up-1">
-                        <img alt="" src="imges/786453654365.png">
+                        <img alt="" src="${pageContext.request.contextPath }/imges/786453654365.png">
                     </li>
                     <li class="up-2 col-xs-12">人脉</li>
                     <li class="up-3 col-xs-12">同班好友,同院学长,技术大师,入学就混职脉圈,为以后铺平道路</li>
@@ -123,11 +125,11 @@
 
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 text-center">
             <p>
-                <img src="imges/453254312.png">${cs1}<br>
+                <img src="${pageContext.request.contextPath }/imges/453254312.png">${cs1}<br>
                 <span class="up-3">累计在线学习人数</span>
             </p>
             <p>
-                <img src="imges/453254312.png">${cs2}<br>
+                <img src="${pageContext.request.contextPath }/imges/453254312.png">${cs2}<br>
                 <span class="up-3">学员已经找到满意工作</span>
             </p>
         </div>
@@ -188,7 +190,7 @@
             <c:forEach items="${cs}" var="c" varStatus="st">
             <li class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                 <div>
-                    <img src="imges/${c.picture } "/><%-- 图片显示--%>
+                    <img src="${pageContext.request.contextPath }/imges/${c.picture } "/><%-- 图片显示--%>
                     <span>技术顾问: ${c.name }</span><%-- 学员名字--%>
                     <p class="text-left"> ${c.describe } </p><%-- 个人信息的描述--%>
                 </div>
@@ -228,19 +230,19 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <ul class="logo">
                 <li>
-                    <a href=""><img src="imges/123132.png"></a>
+                    <a href=""><img src="${pageContext.request.contextPath }/imges/123132.png"></a>
                 </li>
                 <li>
-                    <a href=""> <img src="imges/1549865.png"></a>
+                    <a href=""> <img src="${pageContext.request.contextPath }/imges/1549865.png"></a>
                 </li>
                 <li>
-                    <a href=""> <img src="imges/785345.png"></a>
+                    <a href=""> <img src="${pageContext.request.contextPath }/imges/785345.png"></a>
                 </li>
                 <li>
-                    <a href=""> <img src="imges/1471.png"></a>
+                    <a href=""> <img src="${pageContext.request.contextPath }/imges/1471.png"></a>
                 </li>
                 <li>
-                    <a href="">  <img src="imges/7861.png"></a>
+                    <a href="">  <img src="${pageContext.request.contextPath }/imges/7861.png"></a>
                 </li>
             </ul>
         </div>
@@ -295,7 +297,7 @@
             </div>
             <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 up-3">
                 <p>微信公众平台</p>
-                <img alt="" src="imges/2524.jpg">
+                <img alt="" src="${pageContext.request.contextPath }/imges/2524.jpg">
             </div>
         </div>
     </div>
@@ -304,7 +306,7 @@
     </div>
 </div>
 </body>
-<script src="js&css/jquery.min.js"></script>
-<script  src="js&css/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath }/js&css/jquery.min.js"></script>
+<script  src="${pageContext.request.contextPath }/js&css/bootstrap.min.js"></script>
 </html>
 

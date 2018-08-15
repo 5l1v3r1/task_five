@@ -3,22 +3,14 @@ package com.fuwei.controller;
 
 import com.fuwei.pojo.Student;
 import com.fuwei.service.StudentService;
-import com.fuwei.util.MemcachedUtil;
-import com.fuwei.util.RedisUtil;
 import com.google.gson.Gson;
-import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-import sun.plugin2.util.PojoUtil;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 // 告诉spring mvc这是一个控制器类
@@ -31,7 +23,7 @@ public class StudentController {
 	/*@Autowired
 	RedisUtil redisUtil;*/
 
-	@RequestMapping(value="/index",method= RequestMethod.GET)
+	/*@RequestMapping(value="/index",method= RequestMethod.GET)
 	public ModelAndView listCategory(){
 
 		ModelAndView mav = new ModelAndView();
@@ -47,7 +39,7 @@ public class StudentController {
 
 		mav.setViewName("index");
 		return mav;
-	}
+	}*/
 
 	/*@RequestMapping(value="/ajax",method=RequestMethod.GET)
 	public String get(HttpServletResponse response) throws IOException {

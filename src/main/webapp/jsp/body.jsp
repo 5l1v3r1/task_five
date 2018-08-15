@@ -15,7 +15,7 @@
 
                 <div class="warp-border">
                     <div class="clearfix">
-                        <div class="icon-people"><img src="imges/${h.picture}"></div>
+                        <div class="icon-people"><img src="${pageContext.request.contextPath }/imges/${h.picture}"></div>
                         <div class="text">
                             <h4 class="">${h.name}</h4>
                             <p class="text-present">${h.introduce}</p>
@@ -24,10 +24,10 @@
 
                     <div class="warp-class2">
                         <div class="warp-class2-text">
-                            <div class="iconfont text-padding">门槛 <img src="imges/${h.doorsill}"></div>
+                            <div class="iconfont text-padding">门槛 <img src="${pageContext.request.contextPath }/imges/${h.doorsill}"></div>
                         </div>
                         <div class="warp-class2-text">
-                            <div class="iconfont text-padding text-border-left">难易程度 <img src="imges/${h.doorsill}"><img src="imges/${h.doorsill}"></div>
+                            <div class="iconfont text-padding text-border-left">难易程度 <img src="${pageContext.request.contextPath }/imges/${h.doorsill}"><img src="${pageContext.request.contextPath }/imges/${h.doorsill}"></div>
                         </div>
                     </div>
                     <div class="warp-class2">
@@ -86,7 +86,7 @@
 
                 <div class="warp-border">
                     <div class="clearfix">
-                        <div class="icon-people"><img src="imges/${j.picture}"></div>
+                        <div class="icon-people"><img src="${pageContext.request.contextPath }/imges/${j.picture}"></div>
                         <div class="text">
                             <h4 class="">${j.name}</h4>
                             <p class="text-present">${j.introduce}</p>
@@ -95,10 +95,10 @@
 
                     <div class="warp-class2">
                         <div class="warp-class2-text">
-                            <div class="iconfont text-padding">门槛 <img src="imges/${j.doorsill}"></div>
+                            <div class="iconfont text-padding">门槛 <img src="${pageContext.request.contextPath }/imges/${j.doorsill}"></div>
                         </div>
                         <div class="warp-class2-text">
-                            <div class="iconfont text-padding text-border-left">难易程度 <img src="imges/${j.doorsill}"><img src="imges/${j.doorsill}"></div>
+                            <div class="iconfont text-padding text-border-left">难易程度 <img src="${pageContext.request.contextPath }/imges/${j.doorsill}"><img src="${pageContext.request.contextPath }/imges/${j.doorsill}"></div>
                         </div>
                     </div>
                     <div class="warp-class2">
@@ -157,7 +157,7 @@
 
                 <div class="warp-border">
                     <div class="clearfix">
-                        <div class="icon-people"><img src="imges/${m.picture}"></div>
+                        <div class="icon-people"><img src="${pageContext.request.contextPath }/imges/${m.picture}"></div>
                         <div class="text">
                             <h4 class="">${m.name}</h4>
                             <p class="text-present">${m.introduce}</p>
@@ -166,10 +166,10 @@
 
                     <div class="warp-class2">
                         <div class="warp-class2-text">
-                            <div class="iconfont text-padding">门槛 <img src="imges/${m.doorsill}"></div>
+                            <div class="iconfont text-padding">门槛 <img src="${pageContext.request.contextPath }/imges/${m.doorsill}"></div>
                         </div>
                         <div class="warp-class2-text">
-                            <div class="iconfont text-padding text-border-left">难易程度 <img src="imges/${m.doorsill}"><img src="imges/${m.doorsill}"></div>
+                            <div class="iconfont text-padding text-border-left">难易程度 <img src="${pageContext.request.contextPath }/imges/${m.doorsill}"><img src="${pageContext.request.contextPath }/imges/${m.doorsill}"></div>
                         </div>
                     </div>
                     <div class="warp-class2">
@@ -228,7 +228,7 @@
 
                 <div class="warp-border">
                     <div class="clearfix">
-                        <div class="icon-people"><img src="imges/${w.picture}"></div>
+                        <div class="icon-people"><img src="${pageContext.request.contextPath }/imges/${w.picture}"></div>
                         <div class="text">
                             <h4 class="">${w.name}</h4>
                             <p class="text-present">${w.introduce}</p>
@@ -237,10 +237,10 @@
 
                     <div class="warp-class2">
                         <div class="warp-class2-text">
-                            <div class="iconfont text-padding">门槛 <img src="imges/${w.doorsill}"></div>
+                            <div class="iconfont text-padding">门槛 <img src="${pageContext.request.contextPath }/imges/${w.doorsill}"></div>
                         </div>
                         <div class="warp-class2-text">
-                            <div class="iconfont text-padding text-border-left">难易程度 <img src="imges/${w.doorsill}"><img src="imges/${w.doorsill}"></div>
+                            <div class="iconfont text-padding text-border-left">难易程度 <img src="${pageContext.request.contextPath }/imges/${w.doorsill}"><img src="${pageContext.request.contextPath }/imges/${w.doorsill}"></div>
                         </div>
                     </div>
                     <div class="warp-class2">
@@ -299,7 +299,7 @@
 
                 <div class="warp-border">
                     <div class="clearfix">
-                        <div class="icon-people"><img src="imges/${r.picture}"></div>
+                        <div class="icon-people"><img src="${pageContext.request.contextPath }/imges/${r.picture}"></div>
                         <div class="text">
                             <h4 class="">${r.name}</h4>
                             <p class="text-present">${r.introduce}</p>
@@ -308,10 +308,10 @@
 
                     <div class="warp-class2">
                         <div class="warp-class2-text">
-                            <div class="iconfont text-padding">门槛 <img src="imges/${r.doorsill}"></div>
+                            <div class="iconfont text-padding">门槛 <img src="${pageContext.request.contextPath }/imges/${r.doorsill}"></div>
                         </div>
                         <div class="warp-class2-text">
-                            <div class="iconfont text-padding text-border-left">难易程度 <img src="imges/${r.doorsill}"><img src="imges/${r.doorsill}"></div>
+                            <div class="iconfont text-padding text-border-left">难易程度 <img src="${pageContext.request.contextPath }/imges/${r.doorsill}"><img src="${pageContext.request.contextPath }/imges/${r.doorsill}"></div>
                         </div>
                     </div>
                     <div class="warp-class2">

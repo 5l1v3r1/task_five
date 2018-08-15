@@ -1,37 +1,40 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-
-<div>
-    <header>
-        <div class="top container">
-            <p class="hidden-xs">客服热线：010-594-78634</p>
-            <img src="imges/12321.gif">
-        </div>
-
-        <div role="navigation" class="nav1 navbar navbar-default">
-            <div class="container">
-                <div class="header-logo">
-                    <div class="logo-middle"><img src="imges/logo.png"></div>
-                </div>
-                <div class="navbar-header marginTop">
-                    <button data-target="#example-navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-                        <span class="sr-only">切换导航</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-
-                <div id="example-navbar-collapse" class=" collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <a href=""><li>首 页</li></a>
-                        <a href=""><li class="border">职 业</li></a>
-                        <a href=""><li>推 荐</li></a>
-                        <a href=""><li>关 于</li></a>
-                    </ul>
-                </div>
+<div class="container  hidden-xs">
+    <div class="row header-top">
+        <p class="col-xs-12 col-sm-6 col-md-6 col-lg-6">客服电话:010-594-78634</p>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
+            <div>
+                <a href="#" target="_blank"> <img alt=""  src="${pageContext.request.contextPath }/imges/54537.png"></a>
+                <a href="#" target="_blank"><img alt=""  src="${pageContext.request.contextPath }/imges/45678678.png"></a>
+                <a href="#" target="_blank"> <img alt=""  src="${pageContext.request.contextPath }/imges/54375483543.png"></a>
             </div>
+        </div>
+    </div>
+</div>
 
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">
+                <img src="${pageContext.request.contextPath }/imges/logo.png" alt="Brand" class="img-responsive">
+            </a>
+            <button data-target="#open-nav" data-toggle="collapse" class="navbar-toggle btn-primary collapsed" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="open-nav" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+            <ul class="nav navbar-nav navbar-right text-center list-inline">
+                <li><a href="${pageContext.request.contextPath}/index">首页</a></li>
+                <li style="border-bottom: 4px solid #ffffff;"><a href="${pageContext.request.contextPath}/detail">职业</a></li>
+                <li><a href="">推荐</a></li>
+                <li><a href="${pageContext.request.contextPath}/upload">关于</a></li>
+                <li><a href="${pageContext.request.contextPath}/login">登陆</a></li>
+                <li><a href="${pageContext.request.contextPath}/register">注册</a></li>
+                <li ><a href="#" style="color: red;font-size: 30px;">${welcome}</a></li>
+            </ul>
         </div>
 
-    </header>
-</div>
+    </div>
+</nav>

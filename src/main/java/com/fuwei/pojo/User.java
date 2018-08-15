@@ -8,9 +8,19 @@ public class User {
     private String salt;
     private String despwd;
     private String phone;
+    private String phone_code;
     private String head_photo;
     private String email;
+    private String email_code;
 
+    public User(){
+
+    }
+
+    public User( String head_photo,int id) {
+        this.id= id;
+        this.head_photo= head_photo;
+    }
     public Integer getId() {
         return id;
     }
@@ -59,6 +69,14 @@ public class User {
         this.phone = phone;
     }
 
+    public String getPhone_code() {
+        return phone_code;
+    }
+
+    public void setPhone_code(String phone_code) {
+        this.phone_code = phone_code;
+    }
+
     public String getHead_photo() {
         return head_photo;
     }
@@ -75,6 +93,14 @@ public class User {
         this.email = email;
     }
 
+    public String getEmail_code() {
+        return email_code;
+    }
+
+    public void setEmail_code(String email_code) {
+        this.email_code = email_code;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -84,8 +110,10 @@ public class User {
                 ", salt='" + salt + '\'' +
                 ", despwd='" + despwd + '\'' +
                 ", phone='" + phone + '\'' +
+                ", phone_code='" + phone_code + '\'' +
                 ", head_photo='" + head_photo + '\'' +
                 ", email='" + email + '\'' +
+                ", email_code='" + email_code + '\'' +
                 '}';
     }
 }

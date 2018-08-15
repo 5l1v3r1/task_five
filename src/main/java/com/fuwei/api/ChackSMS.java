@@ -1,25 +1,24 @@
 package com.fuwei.api;
+import com.cloopen.rest.sdk.CCPRestSmsSDK;
+
 import java.util.HashMap;
 import java.util.Set;
-import com.cloopen.rest.sdk.CCPRestSmsSDK;
 
 
 public class ChackSMS {
 
-  public static void main(String []args) throws Exception {
+  /*public static void main(String []args) throws Exception {
         int a = 1312;
-        String b = "13281247216";
+        String b = "";
         good(b,a);
-    }
+    }*/
 
 
-    public static boolean good(String b,int a)throws Exception{
+    public static boolean good(String b,String a)throws Exception{
         HashMap<String, Object> result = null;
         boolean ok=false;
-        System.out.println("6+-9+55+");
         //初始化SDK
         CCPRestSmsSDK restAPI = new CCPRestSmsSDK();
-        System.out.println("6+-9+55+1211111111111111119");
         //******************************注释*********************************************
         //*初始化服务器地址和端口                                                       *
         //*沙盒环境（用于应用开发调试）：restAPI.init("sandboxapp.cloopen.com", "8883");*
