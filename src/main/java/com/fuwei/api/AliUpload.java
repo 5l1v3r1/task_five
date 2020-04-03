@@ -14,12 +14,12 @@ import java.io.IOException;
  */
 public class AliUpload {
 
-    private static String endpoint = "http://oss-cn-beijing.aliyuncs.com";
-    private static String accessKeyId = "LTAIQ3sYqTAbS9DA";
-    private static String accessKeySecret = "lVGjygplWuK72TtObF10vnmRCd6Wjn";
-    private static String bucketName = "thelostworld";
-    private static String key = "new3.png";
-    private static String uploadFile = "http://pdawol65w.bkt.clouddn.com/1c81ec35-a477-45d3-8192-2ddb418c430d.png";
+    private static String endpoint = "XXXX";
+    private static String accessKeyId = "XXXX";
+    private static String accessKeySecret = "XXX";
+    private static String bucketName = "XXXX";
+    private static String key = "XXXX.png";
+    private static String uploadFile = "http://XXXX.bkt.clouddn.com/1c81ec35-a477-45d3-8192-2ddb418c430d.png";
 
     public static void main(String[] args) throws IOException {
 

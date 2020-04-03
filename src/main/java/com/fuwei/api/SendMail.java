@@ -19,8 +19,8 @@ public class SendMail {
     public static boolean send_template(String email, String emailcode) throws Throwable {
         final String url = "http://api.sendcloud.net/apiv2/mail/send";
 
-        final String apiUser = "fuwei0101_test_Zg7j32";
-        final String apiKey = "ooAV7RbHLeQrzXFb";
+        final String apiUser = "XXXX";
+        final String apiKey = "XXXX";
         final String rcpt_to = email;
 
         String subject = "Email验证码";
@@ -59,7 +59,7 @@ public class SendMail {
     public static void main(String[] args) throws Throwable {
         //send_common();
         // send_common_advanced();
-        send_template("1724085190@qq.com","1234");
+        send_template("XXXX@qq.com","1234");
         // send_with_addresslist();
     }
 }

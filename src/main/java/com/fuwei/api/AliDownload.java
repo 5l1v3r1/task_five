@@ -16,9 +16,9 @@ import java.io.IOException;
 public class AliDownload {
 
     private static String endpoint = "http://oss-cn-beijing.aliyuncs.com";
-    private static String accessKeyId = "LTAIQ3sYqTAbS9DA";
-    private static String accessKeySecret = "lVGjygplWuK72TtObF10vnmRCd6Wjn";
-    private static String bucketName = "thelostworld";
+    private static String accessKeyId = "XXXX";
+    private static String accessKeySecret = "XXXX";
+    private static String bucketName = "XXXX";
     private static String key = "12.png";
     private static String downloadFile = "D:\\Code_Audit_360\\Windows壁纸\\3.jpg";
 

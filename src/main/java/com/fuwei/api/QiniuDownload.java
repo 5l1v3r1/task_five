@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class QiniuDownload {
     //设置好账号的ACCESS_KEY和SECRET_KEY
-    String ACCESS_KEY = "sQjHpO-hHmg84KGNC72Xgumo0pKahWLih-FIgjm9";
-    String SECRET_KEY = "hgTL4_1GpVqEHhrhTPkWdbbfQeJSTI90Qf2IHlI2";
+    String ACCESS_KEY = "sQjHpO-XXXX-FIgjm9";
+    String SECRET_KEY = "XXXX";
     //密钥配置
     Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
     //构造私有空间的需要生成的下载的链接

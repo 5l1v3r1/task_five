@@ -30,9 +30,9 @@ public class MoveData {
         // Endpoint以杭州为例，其它Region请按实际情况填写。
         String endpoint = "http://oss-cn-beijing.aliyuncs.com";
         // 云账号AccessKey有所有API访问权限，建议遵循阿里云安全最佳实践，创建并使用RAM子账号进行API访问或日常运维，请登录 https://ram.console.aliyun.com 创建。
-        String accessKeyId = "LTAIQ3sYqTAbS9DA";
-        String accessKeySecret = "lVGjygplWuK72TtObF10vnmRCd6Wjn";
-        String bucket = "thelostworld";
+        String accessKeyId = "XXXX";
+        String accessKeySecret = "XXXX";
+        String bucket = "XXXX";
 
 // 创建OSSClient实例。
         OSSClient ossClient = new OSSClient(endpoint, accessKeyId, accessKeySecret);
@@ -55,9 +55,9 @@ public class MoveData {
         // Endpoint以杭州为例，其它Region请按实际情况填写。
         String endpoint = "http://oss-cn-beijing.aliyuncs.com";
         // 云账号AccessKey有所有API访问权限，建议遵循阿里云安全最佳实践，创建并使用RAM子账号进行API访问或日常运维，请登录 https://ram.console.aliyun.com 创建。
-        String accessKeyId = "LTAIQ3sYqTAbS9DA";
-        String accessKeySecret = "lVGjygplWuK72TtObF10vnmRCd6Wjn";
-        String bucket="thelostworld";
+        String accessKeyId = "XXXX";
+        String accessKeySecret = "XXXX";
+        String bucket="XXXX";
 
         try {
 // 创建OSSClient实例。
@@ -79,9 +79,9 @@ public class MoveData {
     public void  Aliupload(InputStream inputStream,String fileName) {
         String endpoint = "http://oss-cn-beijing.aliyuncs.com";
         // 云账号AccessKey有所有API访问权限，建议遵循阿里云安全最佳实践，创建并使用RAM子账号进行API访问或日常运维，请登录 https://ram.console.aliyun.com 创建。
-        String accessKeyId = "LTAIQ3sYqTAbS9DA";
-        String accessKeySecret = "lVGjygplWuK72TtObF10vnmRCd6Wjn";
-        String bucketname="thelostworld";
+        String accessKeyId = "XXXX";
+        String accessKeySecret = "XXXX";
+        String bucketname="XXXX";
 
         try {
             OSSClient ossClient = new OSSClient(endpoint, accessKeyId, accessKeySecret);
@@ -112,9 +112,9 @@ public class MoveData {
         //构造一个带指定Zone对象的配置类
         Configuration cfg = new Configuration(Zone.zone0());
         //...其他参数参考类注释
-        String accessKey = "sQjHpO-hHmg84KGNC72Xgumo0pKahWLih-FIgjm9";
-        String secretKey = "hgTL4_1GpVqEHhrhTPkWdbbfQeJSTI90Qf2IHlI2";
-        String bucket = "thelostworld1";//七牛云的bucket名称
+        String accessKey = "sQjHpO-XXXX-FIgjm9";
+        String secretKey = "XXXX";
+        String bucket = "XXXX";//七牛云的bucket名称
         Auth auth = Auth.create(accessKey, secretKey);
         BucketManager bucketManager = new BucketManager(auth, cfg);
         //文件名前缀
@@ -144,7 +144,7 @@ public class MoveData {
     //七牛云下载类
     public InputStream QiniudownLoad(String fileName) throws IOException {
         //String fileName="1c81ec35-a477-45d3-8192-2ddb418c430d.png";
-        String domainOfBucket = "http://pd1ky707c.bkt.clouddn.com/";
+        String domainOfBucket = "http://XXXX.bkt.clouddn.com/";
 
         //解决文件名包含中文的问题
         String encodedFileName = URLEncoder.encode(fileName, "utf-8");
@@ -166,9 +166,9 @@ public class MoveData {
         //...其他参数参考类注释
         UploadManager uploadManager = new UploadManager(cfg);
         //...生成上传凭证，然后准备上传
-        String accessKeyId = "sQjHpO-hHmg84KGNC72Xgumo0pKahWLih-FIgjm9";
-        String accessKeySecret = "hgTL4_1GpVqEHhrhTPkWdbbfQeJSTI90Qf2IHlI2";
-        String bucket = "thelostworld1";
+        String accessKeyId = "sQjHpO-XXXX-FIgjm9";
+        String accessKeySecret = "XXXX";
+        String bucket = "XXXX";
         String key = filename;
 
         try {

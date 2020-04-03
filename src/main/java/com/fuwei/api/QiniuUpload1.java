@@ -11,10 +11,10 @@ import java.io.IOException;
 
 public class QiniuUpload1 {
     //设置好账号的ACCESS_KEY和SECRET_KEY
-    String ACCESS_KEY = "sQjHpO-hHmg84KGNC72Xgumo0pKahWLih-FIgjm9";
-    String SECRET_KEY = "hgTL4_1GpVqEHhrhTPkWdbbfQeJSTI90Qf2IHlI2";
+    String ACCESS_KEY = "sQjHpO-XXXX-FIgjm9";
+    String SECRET_KEY = "XXXX";
     //要上传的空间
-    String bucketname = "thelostworld1";
+    String bucketname = "XXXX";
     //上传到七牛后保存的文件名
     String key = "good.png";
     //上传文件的路径
